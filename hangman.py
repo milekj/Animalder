@@ -13,6 +13,8 @@ def main():
     except IndexError:
         print('Name for words file not specified.')
         exit(1)
+    except:
+        exit(1)
     
     if len(words) == 0:
         print('Invalid words file')
@@ -60,7 +62,7 @@ def getWords(filename):
     try:
         file = open(filename, 'r')
         return [s.strip('\n') for s in file.readlines()]
-    except IOError:
+    except (IOError, FileNotFoundError):
         print('Cannot open words file.')
         raise
     
