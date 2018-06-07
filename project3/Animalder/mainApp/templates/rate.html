@@ -1,0 +1,21 @@
+{% extends 'withMenu.html' %}
+
+<h1>Rate</h1>
+
+{% block main %}
+
+    <form action="{% url 'rate' user.id %}" method="post">
+        {% csrf_token %}
+
+        {{ user.username }} <br>
+        {{ user.first_name }} {{user.last_name}} <br>
+        sex: {{ user.profile.sex }} <br>
+        looking for: {{ user.profile.lookingFor }} <br>
+        <img src ="/{{ user.profile.profilePhoto.url }}" width="40%"> <br>
+
+        <input type="radio" name="choice" value=True checked/> like <br>
+        <input type="radio" name="choice" value=False /> don't like <br>
+        <input type="submit" value="Rate!" />
+
+    </form>
+    {% endblock main %}

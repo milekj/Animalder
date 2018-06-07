@@ -1,0 +1,18 @@
+{% extends 'withMenu.html' %}
+
+</frame>
+{% block main %}
+  <h1>Your profile</h1>
+  <form method="post">
+      {% csrf_token %}
+      {{ user.username }} <br>
+      {{ user.first_name }} {{user.last_name}} <br>
+      sex: {{ user.profile.sex }} <br>
+      looking for: {{ user.profile.lookingFor }} <br>
+      {{ user.profile.dateOfBirth }} <br>
+      {{ user.email }} <br>
+      <img src ="/{{ user.profile.profilePhoto.url }}" width="40%">
+      
+  </form>
+
+{% endblock main %}

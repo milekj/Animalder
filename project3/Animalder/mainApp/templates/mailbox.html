@@ -1,0 +1,16 @@
+{%  extends 'withMenu.html' %}
+
+{% block main %}
+
+  <h1>Mailbox</h1>
+
+  {% csrf_token %}
+
+  {% for m in matches %}
+      <a href="/message/{{ m.username }}">
+      <img src ="/{{ m.profile.profilePhoto.url }}"/ width="20%"> </a>
+  {% empty %}
+    <h2> No matches to message. Try rating some profiles!</h2>
+  {% endfor %}
+
+{% endblock main%}

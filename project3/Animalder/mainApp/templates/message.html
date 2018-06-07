@@ -1,0 +1,19 @@
+{%  extends 'withMenu.html' %}
+
+{% block main %}
+
+  {% csrf_token %}
+
+  {% for m in messages %}
+  <img src ="/{{ m.0.profilePhoto.url }}" width="5%"> {{  m.1 }} <br>
+  {% empty %}
+    <h2> No messages. </h2>
+  {% endfor %}
+
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">send</button>
+  </form>
+
+{% endblock main%}

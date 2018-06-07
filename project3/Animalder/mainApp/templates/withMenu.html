@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <center>
+            <font size=5>
+                <a href="/" target=""> home</a>
+                <a href="/rate"> rate</a>
+                <a href="/matches">matches</a>
+                <a href="/mailbox/">mailbox</a>
+                <a href="/profile/">profile</a>
+                <a href="/logout">logout</a>
+            </font>
+    </center>
+    {% block main %}
+    {% endblock main %}
+{% endblock content %}

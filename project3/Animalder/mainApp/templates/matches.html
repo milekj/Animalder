@@ -1,0 +1,18 @@
+{% extends 'withMenu.html' %}
+
+{% block main %}
+  <h1>Your matches</h1>
+
+  {% csrf_token %}
+
+  {% for m in matches %}
+      <h2>{{ m.username }} </h2> <br>
+      <a href="/profile/{{ m.username }}" >
+      <img src ="/{{ m.profile.profilePhoto.url }}"/ width="40%"> </a> <br><br>
+      <hr>
+  {% empty %}
+    <h2> No matches. Try rating some profiles!</h2>
+  {% endfor %}
+
+
+{% endblock main %}
